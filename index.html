@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0f">
+  <title>School44</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #0b0b0f; }
+    iframe { display: block; width: 100%; height: 100%; border: 0; background: #0b0b0f; }
+    #fallback { display: none; position: fixed; inset: 0; padding: 2rem; color: white; font: 16px/1.5 system-ui, sans-serif; text-align: center; align-content: center; }
+    #fallback a { color: #9cc7ff; }
+  </style>
+</head>
+<body>
+  <iframe
+    src="https://silver-island-fe657052.tunnl.gg/"
+    title="School44"
+    allow="fullscreen; clipboard-read; clipboard-write"
+    allowfullscreen
+    referrerpolicy="no-referrer"
+  ></iframe>
+  <div id="fallback">
+    <h1>School44 couldn't be embedded</h1>
+    <p>The tunnel may block iframe embedding. Try opening the app directly:</p>
+    <p><a href="https://silver-island-fe657052.tunnl.gg/">Open School44</a></p>
+  </div>
+  <script>
+    // Browsers do not expose iframe load failures reliably; this is only a
+    // fallback for a frame that never reports a load event.
+    const frame = document.querySelector("iframe");
+    const fallback = document.querySelector("#fallback");
+    let loaded = false;
+    frame.addEventListener("load", () => { loaded = true; });
+    window.setTimeout(() => {
+      if (!loaded) {
+        frame.style.display = "none";
+        fallback.style.display = "grid";
+      }
+    }, 12000);
+  </script>
+</body>
+</html>
